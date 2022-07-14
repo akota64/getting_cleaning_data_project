@@ -1,0 +1,106 @@
+All information in this code book is derived from the data and descriptions at http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+Experiment and Pre-Analysis Overview: 
+- 30 subjects, each numbered 1-30, are tasked to perform 6 different activities while wearing a Samsung Galaxy S II on their waists: laying, sitting, standing, walking, walking downstairs, and walking upstairs.
+- Measurements of linear acceleration and angular velocity were taken at a constant 50 Hz in all three dimensions.
+- The measurements were analyzed in 2.56 s windows, with 50% overlap between windows. For each window, pre-processing was performed to obtain window mean, window standard deviation, etc.. These are the measurements recorded in the observational data set (X).
+- Measurements were taken in the time domain, but then processed also into the frequency domain using Fast Fourier Transform.
+- NOTE: Each row in X corresponds to 1 pre-processed window of measurement, not a single measurement.
+
+Analysis Overview:
+- The observational data set was labeled with the correct subject and activity performed for each window (row).
+- Only the mean and st.dev. for each variable was taken for each window (row). All other columns were discarded.
+- All windows were averaged over, grouped by subject+activity combo, to obtain the final tidy data set. Thus, there is only 1 entry for subject 17 walking, for example, in the tidy data set. This row contains the average mean and average st.dev. across windows for any given variable measured.
+
+
+The first 2 variables in the tidy data set, UCI_HAR_tidy_data.txt, are described below:
+
+"subject" (int): The number of the subject performing the activity
+"activity" (string): The activity performed by the subject in the "subject" column. Each subject performed a total of 6 activities and sets of measurements were taken during each activity.
+
+
+
+The rest of the variables in the tidy data set are listed below. The terminology involved in each variable is explained after the variable list.
+
+"average_time_domain_body_acc_mean_x"                  
+"average_time_domain_body_acc_mean_y"                  
+"average_time_domain_body_acc_mean_z"                  
+"average_time_domain_body_acc_std_x"                   
+"average_time_domain_body_acc_std_y"                   
+"average_time_domain_body_acc_std_z"                   
+"average_time_domain_gravity_acc_mean_x"               
+"average_time_domain_gravity_acc_mean_y"               
+"average_time_domain_gravity_acc_mean_z"               
+"average_time_domain_gravity_acc_std_x"                
+"average_time_domain_gravity_acc_std_y"                
+"average_time_domain_gravity_acc_std_z"                
+"average_time_domain_body_acc_jerk_mean_x"             
+"average_time_domain_body_acc_jerk_mean_y"             
+"average_time_domain_body_acc_jerk_mean_z"             
+"average_time_domain_body_acc_jerk_std_x"              
+"average_time_domain_body_acc_jerk_std_y"              
+"average_time_domain_body_acc_jerk_std_z"              
+"average_time_domain_body_gyro_mean_x"                 
+"average_time_domain_body_gyro_mean_y"                 
+"average_time_domain_body_gyro_mean_z"                 
+"average_time_domain_body_gyro_std_x"                  
+"average_time_domain_body_gyro_std_y"                  
+"average_time_domain_body_gyro_std_z"                  
+"average_time_domain_body_gyro_jerk_mean_x"            
+"average_time_domain_body_gyro_jerk_mean_y"            
+"average_time_domain_body_gyro_jerk_mean_z"            
+"average_time_domain_body_gyro_jerk_std_x"             
+"average_time_domain_body_gyro_jerk_std_y"             
+"average_time_domain_body_gyro_jerk_std_z"             
+"average_time_domain_body_acc_mag_mean"                
+"average_time_domain_body_acc_mag_std"                 
+"average_time_domain_gravity_acc_mag_mean"             
+"average_time_domain_gravity_acc_mag_std"              
+"average_time_domain_body_acc_jerk_mag_mean"           
+"average_time_domain_body_acc_jerk_mag_std"            
+"average_time_domain_body_gyro_mag_mean"               
+"average_time_domain_body_gyro_mag_std"                
+"average_time_domain_body_gyro_jerk_mag_mean"          
+"average_time_domain_body_gyro_jerk_mag_std"           
+"average_frequency_domain_body_acc_mean_x"             
+"average_frequency_domain_body_acc_mean_y"             
+"average_frequency_domain_body_acc_mean_z"             
+"average_frequency_domain_body_acc_std_x"              
+"average_frequency_domain_body_acc_std_y"              
+"average_frequency_domain_body_acc_std_z"              
+"average_frequency_domain_body_acc_jerk_mean_x"        
+"average_frequency_domain_body_acc_jerk_mean_y"        
+"average_frequency_domain_body_acc_jerk_mean_z"        
+"average_frequency_domain_body_acc_jerk_std_x"         
+"average_frequency_domain_body_acc_jerk_std_y"         
+"average_frequency_domain_body_acc_jerk_std_z"         
+"average_frequency_domain_body_gyro_mean_x"            
+"average_frequency_domain_body_gyro_mean_y"            
+"average_frequency_domain_body_gyro_mean_z"            
+"average_frequency_domain_body_gyro_std_x"             
+"average_frequency_domain_body_gyro_std_y"             
+"average_frequency_domain_body_gyro_std_z"             
+"average_frequency_domain_body_acc_mag_mean"           
+"average_frequency_domain_body_acc_mag_std"            
+"average_frequency_domain_body_acc_jerk_mag_mean" 
+"average_frequency_domain_body_acc_jerk_mag_std"  
+"average_frequency_domain_body_gyro_mag_mean"     
+"average_frequency_domain_body_gyro_mag_std"      
+"average_frequency_domain_body_gyro_jerk_mag_mean"
+"average_frequency_domain_body_gyro_jerk_mag_std" 
+
+
+
+Explanation of terminology:
+"average": Averaged across all pertinent windows (grouped by subject and activity in the outputted tidy data set)
+"time_domain": For measurements taken in the time domain
+"frequency_domain": For measurements taken in the frequency domain
+"body_acc": Acceleration of the body, subtracting acceleration from gravity
+"gravity_acc": Acceleration from gravity
+"body_gyro": Angular velocity of the body
+"jerk": Change in ... over time, i.e. body_acc_jerk is the change in body's linear acceleration over time
+"mag": Magnitude in 3 dimensions, i.e. body_acc_mag is the magnitude of the 3-dimensional body_acc vector
+"mean": Mean of the variable over a single window
+"std": Standard deviation of the variable over a single window
+"x","y","z": The x, y, z coordinates of the variable's vector. Variables with "mag" will not have these, because a "mag" variable is the magnitude of a vector, not a vector.
+"_": Used as a separator to separate different 'words' in the variable names

@@ -103,6 +103,7 @@ names(dat)<-gsub("^f","frequency_domain",names(dat))
 names(dat)<-gsub("_([X-Z])$","\\1",names(dat))
 names(dat)<-gsub("([A-Z])","_\\1",names(dat))
 names(dat)<-tolower(names(dat))
+names(dat)<-gsub("body_body","body",names(dat))
 
 
 ## ---------------------------------------------------------------------------------------------------
