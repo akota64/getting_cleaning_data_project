@@ -38,7 +38,7 @@ obs_test <- read.table("UCI HAR Dataset/test/X_test.txt")
 ## Combining observation data into the dat data frame
 dat <- rbind(obs_train,obs_test)
 
-## Removing loaded observation data, for memory purposes. 
+## Removing loaded observation data, for memory purposes
 rm(list=c("obs_train","obs_test"))
 
 
