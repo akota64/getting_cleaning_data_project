@@ -2,6 +2,13 @@
 
 This project involves downloading, loading, and cleaning UCI HAR data from http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones. The final output of the data is a tidy data set as per the conditions given in the project guidelines.
 
+Files in this repo:
+- README.md: That's me! Gives an overview of files in repo and go over the operation of the run_analysis.R script (also described in the script itself via comments)
+- UCI HAR Dataset: Directory containing the data to be loaded and cleaned
+- run_analysis.R: R script that performs the loading and cleaning of the data, outputting a tidy dataset called UCI_HAR_tidy_data.txt
+- UCI_HAR_tidy_data.txt: Final tidy data set outputted by run_analysis.R
+- code_book.txt: A brief description of the experiment, the analysis, and the column names / variables in UCI_HAR_tidy_data.txt
+
 The script works through the following steps:
 1. Checks if required libraries (plyr and dplyr) are present. If not, the library is downloaded.
 2. Checks if required directory "UCI HAR Dataset" is present. If not, downloads the dataset as a zip and unzips the contents. The zip is deleted after extraction. A flag records if the script downloaded the dataset (and needs to be deleted later) or if the dataset was already present in the working directory.
